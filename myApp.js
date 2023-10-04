@@ -17,10 +17,6 @@ app.get("/json", (req, res) => {
     }
     res.json({message: response})
 })
-console.log("Testing: ", process.env.MESSAGE_STYLE)
-
-
-
 
 
 
