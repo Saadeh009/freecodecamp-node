@@ -4,6 +4,13 @@ let app = express();
 
 app.use("/public", express.static(__dirname + "/public"))
 
+function middlewareTest(req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`)
+    next();
+  }
+
+app.use(middlewareTest)
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
 })
