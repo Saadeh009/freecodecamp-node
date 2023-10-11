@@ -4,12 +4,12 @@ let app = express();
 
 app.use("/public", express.static(__dirname + "/public"))
 
-function middlewareTest(req, res, next) {
-    console.log(`${req.method} ${req.path} - ${req.ip}`)
-    next();
-  }
+// function middlewareTest(req, res, next) {
+//     console.log(`${req.method} ${req.path} - ${req.ip}`)
+//     next();
+//   }
 
-app.use(middlewareTest)
+// app.use(middlewareTest)
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
@@ -32,6 +32,11 @@ app.get('/now', function(req, res, next) {
   }, function(req, res) {
     res.json({time: req.time})
   });
+
+app.get("/:word/echo", (req, res) => {
+    const word = req.params.word
+    res.json({echo: word})
+})
 
 
 
