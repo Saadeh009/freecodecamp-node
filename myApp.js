@@ -1,10 +1,10 @@
 require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser')
-bodyParser.urlencoded({extended: false})
+
 
 const app = express();
-app.use(bodyParser)
+app.use(bodyParser.urlencoded({extended: false}))
 app.use("/public", express.static(__dirname + "/public"))
 
 // function middlewareTest(req, res, next) {
